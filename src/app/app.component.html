@@ -1,0 +1,22 @@
+
+
+<div style="text-align:left">
+		<!--explore start -->
+		<section id="explore" class="explore">
+			<div class="container">
+				<div class="section-header">
+					<h2>find your store</h2>
+					<p>Find stores that accept ADA coin, the Cardano Blockchain coin</p>
+				</div><!--/.section-header-->
+				<div class="explore-content">
+					<div class="row">
+
+						<app-store-box *ngFor="let item of storeList; let indexOfStore=index" [store]="item" 
+						[index]="indexOfStore"></app-store-box>	
+
+					</div>
+				</div>
+			</div><!--/.container-->
+
+		</section><!--/.explore-->
+		<!--explore end -->
