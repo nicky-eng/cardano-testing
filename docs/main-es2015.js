@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nicky/git/angular/adastores/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /home/nicky/git/ada_stores/frontend/src/main.ts */"zUnb");
 
 
 /***/ }),

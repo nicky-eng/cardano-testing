@@ -17,7 +17,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! /home/nicky/git/angular/adastores/src/main.ts */
+      /*! /home/nicky/git/ada_stores/frontend/src/main.ts */
       "zUnb");
       /***/
     },
