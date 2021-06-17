@@ -9,8 +9,8 @@ font-family: 'Roboto', sans-serif;
 ==================================== */
 
 @font-face {
-    font-family: ClashDisplay-Variable;
-    src: url("../fonts/ClashDisplay-Variable.ttf") format('truetyupe'),
+    font-family: 'ClashDisplay-Variable';
+    src: url("../fonts/ClashDisplay-Variable.ttf") format('truetype'),
          url("../fonts/ClashDisplay-Variable.woff") format('woff'),
          url("../fonts/ClashDisplay-Variable.woff2") format('woff2');
          font-weight: 200 700;
@@ -180,7 +180,7 @@ html,body{height: 100%;}
 nav.navbar.bootsnav {
     background-color:black;
     border-bottom: transparent;
-    font-family: ClashDisplay-Variable;
+    font-family: 'ClashDisplay-Variable';
 }
 .wrap-sticky nav.navbar.bootsnav.sticked {background-color: black;box-shadow: 0 3px 5px rgba(0,0,0,.4);}
 
@@ -201,7 +201,6 @@ nav.navbar.bootsnav {
 /*.nav li*/
 nav.navbar.bootsnav ul.nav > li > a {
     color: white;
-    font-size: 16.8px;
     font-weight: 600;
     font-style: normal;
     line-height: 19px;
