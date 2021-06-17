@@ -1,3 +1,22 @@
+.explore-rating-price, .explore-rating-price a, .close-btn.open-btn,
+.hm-footer-copyright p, .hm-footer-copyright p a, .footer-menu p,
+.footer-menu a, .section-header p, .section-header h2 {
+    font-family: sans-serif;
+}
+
+nav.navbar.bootsnav ul.nav {
+    
+    font-family: ClashDisplay-Variable;
+    font-size: 16.8px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 19px;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+
+}
+
 nav.navbar.bootsnav .navbar-brand {
     padding: 20px;
 }
