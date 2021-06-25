@@ -1,12 +1,16 @@
-.explore-rating-price, .explore-rating-price a, .close-btn.open-btn,
+.close-btn.open-btn,
 .hm-footer-copyright p, .hm-footer-copyright p a, .footer-menu p,
-.footer-menu a, .section-header p, .section-header h2 {
+.footer-menu a {
     font-family: sans-serif;
+}
+
+.section-header h2, .section-header p {
+    font-family: 'Poppins', sans-serif;
 }
 
 nav.navbar.bootsnav ul.nav {
     
-    font-family: 'ClashDisplay-Variable';
+    font-family: 'Poppins';
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -115,3 +119,9 @@ nav.navbar.bootsnav .navbar-toggle {
 .wrap-sticky nav.navbar.bootsnav {
     padding-bottom: 0px;
 }
+
+nav.navbar.bootsnav.no-full .navbar-collapse {
+    max-height: 200px;
+    text-align: right;
+}
+
