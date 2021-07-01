@@ -121,7 +121,11 @@ nav.navbar.bootsnav .navbar-toggle {
 }
 
 nav.navbar.bootsnav.no-full .navbar-collapse {
-    max-height: 200px;
+    max-height: 210px;
     text-align: right;
+}
+
+nav.navbar.bootsnav .navbar-collapse.collapse.in {
+    padding-bottom: 0px;
 }
 
