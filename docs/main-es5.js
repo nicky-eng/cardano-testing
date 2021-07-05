@@ -57,11 +57,18 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
 
       var StoresService = /*#__PURE__*/function () {
-        function StoresService() {
+        function StoresService(http) {
           _classCallCheck(this, StoresService);
 
+          this.http = http;
           this.storeList = _stores_json__WEBPACK_IMPORTED_MODULE_0__;
         }
 
@@ -76,7 +83,7 @@
       }();
 
       StoresService.ɵfac = function StoresService_Factory(t) {
-        return new (t || StoresService)();
+        return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
       };
 
       StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
@@ -230,25 +237,37 @@
       /* harmony import */
 
 
-      var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
+      /* harmony import */
+
+
+      var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n");
       /* harmony import */
 
 
-      var _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./store-box/store-box.component */
       "qOGq");
       /* harmony import */
 
 
-      var _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./store-list/store-list.component */
       "smD0");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./app-routing.module */
+      "vY5A");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
@@ -260,19 +279,19 @@
         return new (t || AppModule)();
       };
 
-      AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({
+      AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({
         type: AppModule,
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
       });
-      AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({
+      AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({
         providers: [],
-        imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]]]
+        imports: [[_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"]]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](AppModule, {
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"], _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_2__["StoreBoxComponent"], _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_3__["StoreListComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]]
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppModule, {
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__["StoreBoxComponent"], _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_4__["StoreListComponent"]],
+          imports: [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"]]
         });
       })();
       /***/
@@ -289,7 +308,7 @@
 
     /***/
     function iyHU(module) {
-      module.exports = JSON.parse("[{\"name\":\"activity tours\",\"picture\":\"assets/images/explore/activity-tours.png\",\"country\":\"Greece\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/QJ3hZi5yk4ZnreWv7\",\"website\":\"https://www.activity-tours.com/\",\"address\":\"Filolaou 124, Athens\"},{\"name\":\"Hotel Palm Royal Naha\",\"picture\":\"assets/images/explore/palm-royal-naha.jpg\",\"country\":\"japan\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/22C6UAVL4BtbQsBz7\",\"website\":\"http://palmroyal.co.jp/\",\"address\":\"Okinawa Prefecture Naha City Makishi 3-9-10\"},{\"name\":\"Rogue Origin - CBD Products\",\"picture\":\"assets/images/explore/rogue-origin.png\",\"country\":\"United States\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/ZE1HRdhYruNxiqd39\",\"website\":\"https://rogueorigin.com/\",\"address\":\"Rogue Valley, Oregon\"},{\"name\":\"Pita Barcelona - Luxury Fashion\",\"picture\":\"assets/images/explore/pita-barcelona.png\",\"country\":\"Spain\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/pTpmY1ct8m8Ck1MX7\",\"website\":\"http://www.pita.es\",\"address\":\"Avinguda Meridiana 223\"},{\"name\":\"Travala.com\",\"picture\":\"assets/images/explore/travala.png\",\"country\":\"England\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/J5ThPHFTj85ywuEaA\",\"website\":\"http://www.travala.com\",\"address\":\"Chorley, Lancashire\"},{\"name\":\"GamerAll.com\",\"picture\":\"assets/images/explore/gamerall.com.png\",\"country\":\"\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/HVSzLLwtEfoETiMh6\",\"website\":\"http://www.gamerall.com\",\"address\":\"Steam Community\"},{\"name\":\"Plan It Green Printing\",\"picture\":\"assets/images/explore/plan-it.png\",\"country\":\"United States\",\"state\":\"Los Angeles, CA 90041\",\"googlemaps\":\"https://goo.gl/maps/hTCMB67oLT8dQ93JA\",\"website\":\"https://planitgreenprinting.org\",\"address\":\"7435 Figueroa Street #502\"},{\"name\":\"Gabriel La Torre - Web Developer\",\"picture\":\"assets/images/explore/gabolato.png\",\"country\":\"Argentina\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"http://latorregabriel.com/\",\"address\":\"City of Buenos Aires\"},{\"name\":\"Nicolas Oyarzabal- Web Developer\",\"picture\":\"assets/images/explore/nicky-eng.png\",\"country\":\"Denmark\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/WzXGwz6twFTRRHKD7\",\"website\":\"https://www.linkedin.com/in/noyarzab/\",\"address\":\"Copenhagen\"},{\"name\":\"Gina Moda\",\"picture\":\"assets/images/explore/ginamoda.png\",\"country\":\"Argentina\",\"state\":\"\",\"googlemaps\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"https://www.instagram.com/ginamodaes/\",\"address\":\"City of Buenos Aires\"}]");
+      module.exports = JSON.parse("[{\"name\":\"activity tours\",\"picture\":\"assets/images/explore/activity-tours.png\",\"country\":\"Greece\",\"googlemaps_link\":\"https://goo.gl/maps/QJ3hZi5yk4ZnreWv7\",\"website\":\"https://www.activity-tours.com/\",\"address\":\"Filolaou 124, Athens\"},{\"name\":\"Hotel Palm Royal Naha\",\"picture\":\"assets/images/explore/palm-royal-naha.jpg\",\"country\":\"japan\",\"googlemaps_link\":\"https://goo.gl/maps/22C6UAVL4BtbQsBz7\",\"website\":\"http://palmroyal.co.jp/\",\"address\":\"Okinawa Prefecture Naha City Makishi 3-9-10\"},{\"name\":\"Rogue Origin - CBD Products\",\"picture\":\"assets/images/explore/rogue-origin.png\",\"country\":\"United States\",\"state\":\"Oregon\",\"googlemaps_link\":\"https://goo.gl/maps/ZE1HRdhYruNxiqd39\",\"website\":\"https://rogueorigin.com/\",\"address\":\"Rogue Valley\"},{\"name\":\"Pita Barcelona - Luxury Fashion\",\"picture\":\"assets/images/explore/pita-barcelona.png\",\"country\":\"Spain\",\"googlemaps_link\":\"https://goo.gl/maps/pTpmY1ct8m8Ck1MX7\",\"website\":\"http://www.pita.es\",\"address\":\"Avinguda Meridiana 223\"},{\"name\":\"Travala.com\",\"picture\":\"assets/images/explore/travala.png\",\"country\":\"England\",\"googlemaps_link\":\"https://goo.gl/maps/J5ThPHFTj85ywuEaA\",\"website\":\"http://www.travala.com\",\"address\":\"Chorley, Lancashire\"},{\"name\":\"GamerAll.com\",\"picture\":\"assets/images/explore/gamerall.com.png\",\"country\":\"\",\"googlemaps_link\":\"https://goo.gl/maps/HVSzLLwtEfoETiMh6\",\"website\":\"http://www.gamerall.com\",\"address\":\"Steam Community\"},{\"name\":\"Plan It Green Printing\",\"picture\":\"assets/images/explore/plan-it.png\",\"country\":\"United States\",\"state\":\"California\",\"googlemaps_link\":\"https://goo.gl/maps/hTCMB67oLT8dQ93JA\",\"website\":\"https://planitgreenprinting.org\",\"address\":\"7435 Figueroa Street #502, Los Angeles 90041\"},{\"name\":\"Gabriel La Torre - Web Developer\",\"picture\":\"assets/images/explore/gabolato.png\",\"country\":\"Argentina\",\"googlemaps_link\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"http://latorregabriel.com/\",\"address\":\"City of Buenos Aires\"},{\"name\":\"Nicolas Oyarzabal- Web Developer\",\"picture\":\"assets/images/explore/nicky-eng.png\",\"country\":\"Denmark\",\"googlemaps_link\":\"https://goo.gl/maps/WzXGwz6twFTRRHKD7\",\"website\":\"https://www.linkedin.com/in/noyarzab/\",\"address\":\"Copenhagen\"},{\"name\":\"Gina Moda\",\"picture\":\"assets/images/explore/ginamoda.png\",\"country\":\"Argentina\",\"googlemaps_link\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"https://www.instagram.com/ginamodaes/\",\"address\":\"City of Buenos Aires\"}]");
       /***/
     },
 
@@ -337,7 +356,7 @@
         }
       }
 
-      function StoreBoxComponent_p_18_Template(rf, ctx) {
+      function StoreBoxComponent_p_15_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -351,11 +370,11 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", ctx_r2.store.state, ", ", ctx_r2.store.country, "");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", ctx_r2.store.address, ", ", ctx_r2.store.state, "");
         }
       }
 
-      function StoreBoxComponent_ng_template_19_Template(rf, ctx) {
+      function StoreBoxComponent_ng_template_16_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
         }
@@ -363,7 +382,7 @@
         if (rf & 2) {
           var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r4.store.country, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.store.address);
         }
       }
 
@@ -432,17 +451,17 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "a", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, StoreBoxComponent_p_15_Template, 2, 2, "p", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, StoreBoxComponent_ng_template_16_Template, 1, 1, "ng-template", null, 13, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "a", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, StoreBoxComponent_p_18_Template, 2, 2, "p", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, StoreBoxComponent_ng_template_19_Template, 1, 1, "ng-template", null, 13, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -498,7 +517,7 @@
           }
 
           if (rf & 2) {
-            var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](20);
+            var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](17);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.index % 3 === 0);
 
@@ -524,17 +543,17 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.store.address);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.store.state)("ngIfElse", _r3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.store.state)("ngIfElse", _r3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.store.country);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.website, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
@@ -690,6 +709,62 @@
         styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdG9yZS1saXN0LmNvbXBvbmVudC5jc3MifQ== */"]
       });
       /***/
+    },
+
+    /***/
+    "vY5A":
+    /*!***************************************!*\
+      !*** ./src/app/app-routing.module.ts ***!
+      \***************************************/
+
+    /*! exports provided: AppRoutingModule */
+
+    /***/
+    function vY5A(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function () {
+        return AppRoutingModule;
+      });
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var AppRoutingModule = function AppRoutingModule() {
+        _classCallCheck(this, AppRoutingModule);
+      };
+
+      AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) {
+        return new (t || AppRoutingModule)();
+      };
+
+      AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+        type: AppRoutingModule
+      });
+      AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"]]]
+      });
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"]]
+        });
+      })();
+      /***/
+
     },
 
     /***/
