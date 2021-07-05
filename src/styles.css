@@ -1,3 +1,31 @@
+.close-btn.open-btn {
+    font-family:  sans-serif;
+}
+
+.hm-footer-copyright p, .hm-footer-copyright p a, .footer-menu p,
+.footer-menu a {
+    font-family:  sans-serif;
+    color: #fff;
+}
+
+
+.section-header h2, .section-header p {
+    font-family: 'Poppins', sans-serif;
+}
+
+nav.navbar.bootsnav ul.nav {
+    
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 19px;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+
+}
+
 nav.navbar.bootsnav .navbar-brand {
     padding: 20px;
 }
@@ -33,6 +61,7 @@ nav.navbar.bootsnav .navbar-toggle {
     margin-bottom: 0px;
     padding: 20px;
     padding-top: 0px;
+
 }
 
 
@@ -95,5 +124,14 @@ nav.navbar.bootsnav .navbar-toggle {
 }
 
 .wrap-sticky nav.navbar.bootsnav {
+    padding-bottom: 0px;
+}
+
+nav.navbar.bootsnav.no-full .navbar-collapse {
+    max-height: 210px;
+    text-align: right;
+}
+
+nav.navbar.bootsnav .navbar-collapse.collapse.in {
     padding-bottom: 0px;
 }

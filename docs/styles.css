@@ -1,22 +1,136 @@
-/* Application-wide Styles */
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+.close-btn.open-btn {
+    font-family:  sans-serif;
 }
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+
+.hm-footer-copyright p, .hm-footer-copyright p a, .footer-menu p,
+.footer-menu a {
+    font-family:  sans-serif;
+    color: #fff;
 }
-body {
-  margin: 2em;
+
+.section-header h2, .section-header p {
+    font-family: 'Poppins', sans-serif;
 }
-body, input[type="text"], button {
-  color: #333;
-  font-family: Cambria, Georgia, serif;
+
+nav.navbar.bootsnav ul.nav {
+    
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 19px;
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
+    -webkit-text-decoration-style: solid;
+            text-decoration-style: solid;
+
 }
-/* everywhere else */
-* {
-  font-family: Arial, Helvetica, sans-serif;
+
+nav.navbar.bootsnav .navbar-brand {
+    padding: 20px;
 }
+
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand,
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:hover {
+    padding: 30px;
+}
+
+nav.navbar.bootsnav .navbar-toggle i {
+    padding: 25px;
+}
+
+.wrap-sticky nav.navbar.bootsnav {
+    padding-bottom: 15px;
+}
+
+nav.navbar.bootsnav .navbar-header {
+    text-align: left;
+}
+
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header .navbar-toggle,
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header .navbar-toggle:hover {
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+nav.navbar.bootsnav .navbar-toggle {
+    float: right;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 20px;
+    padding-top: 0px;
+
+}
+
+@media screen and (max-width:1190px){
+    nav.navbar.bootsnav .navbar-brand {
+        padding: 20px;
+    }
+    
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand,
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:hover {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width:360px){
+    nav.navbar.bootsnav .navbar-brand {
+        padding: 20px;
+    }
+    
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand,
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:hover {
+        padding: 25px;
+    }
+}
+
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-nav {
+    padding: 10px;
+}
+
+@media screen and (max-width:320px){
+    nav.navbar.bootsnav .navbar-brand {
+        padding: 10px;
+    }
+    
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand,
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:hover {
+        padding: 10px;
+    }
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header .navbar-toggle,
+    .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header .navbar-toggle:hover {
+    padding: 20px;
+    padding-top: 0px;
+    }
+}
+
+.explore-map-icon {
+    text-align: right;
+    margin-top: 0px;
+}
+
+.explore-person {
+    padding-bottom: 5px;
+}
+
+.explore-person p {
+    font-size: 12px;
+    color: #777f85;
+}
+
+.wrap-sticky nav.navbar.bootsnav {
+    padding-bottom: 0px;
+}
+
+nav.navbar.bootsnav.no-full .navbar-collapse {
+    max-height: 210px;
+    text-align: right;
+}
+
+nav.navbar.bootsnav .navbar-collapse.collapse.in {
+    padding-bottom: 0px;
+}
+

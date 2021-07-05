@@ -1,16 +1,8 @@
 import { Component } from '@angular/core';
-import stores from './stores.json';
 
+import { Store } from './store';
+import { StoresService } from './stores.service';
 
-interface Store {
-  name: string,
-  country: string,
-  state: string,
-  address: string,
-  website: string,
-  picture: string,
-  googlemaps: string
-}
 
 @Component({
   selector: 'app-root',
@@ -18,6 +10,17 @@ interface Store {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  storeList: Store[] = [];
+
+  getStores(): void {
+    this.storeList = this.storesService.getStores();
+  }
+
   title = 'Ada and Friends - Business Directory';
-  public storeList: Store[] = stores;
+
+  constructor(private storesService: StoresService) { }
+
+
 }
+

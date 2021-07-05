@@ -499,7 +499,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       __webpack_require__(
-      /*! /home/nicky/git/angular/adastores/node_modules/@angular-devkit/build-angular/src/webpack/es5-polyfills.js */
+      /*! /home/nicky/git/ada_stores/frontend/node_modules/@angular-devkit/build-angular/src/webpack/es5-polyfills.js */
       "voQr");
 
       __webpack_require__(
@@ -507,7 +507,7 @@
       "R0gw");
 
       module.exports = __webpack_require__(
-      /*! /home/nicky/git/angular/adastores/src/polyfills.ts */
+      /*! /home/nicky/git/ada_stores/frontend/src/polyfills.ts */
       "hN/g");
       /***/
     },

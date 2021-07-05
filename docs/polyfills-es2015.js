@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nicky/git/angular/adastores/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/nicky/git/ada_stores/frontend/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
