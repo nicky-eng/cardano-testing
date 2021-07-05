@@ -1,8 +1,13 @@
-.close-btn.open-btn,
+.close-btn.open-btn {
+    font-family:  sans-serif;
+}
+
 .hm-footer-copyright p, .hm-footer-copyright p a, .footer-menu p,
 .footer-menu a {
-    font-family: sans-serif;
+    font-family:  sans-serif;
+    color: #fff;
 }
+
 
 .section-header h2, .section-header p {
     font-family: 'Poppins', sans-serif;
@@ -56,6 +61,7 @@ nav.navbar.bootsnav .navbar-toggle {
     margin-bottom: 0px;
     padding: 20px;
     padding-top: 0px;
+
 }
 
 
