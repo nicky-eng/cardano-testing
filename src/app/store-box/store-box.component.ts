@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import { Store } from '../store';
+
 
 @Component({
   selector: 'app-store-box',
@@ -8,22 +10,13 @@ import { Input } from '@angular/core';
 })
 export class StoreBoxComponent implements OnInit {
 
-  @Input() store!: {
-    name: string,
-    country: string,
-    state: string
-    address: string
-    website: string,
-    picture: string,
-    googlemaps: string
-  }; // TODO: Import this from an external interface.
-  @Input() index!: number;
+  @Input() store!: Store;
 
+  @Input() index!: number;
 
   constructor() { }
 
-  ngOnInit(): void {
-
+  ngOnInit() {
   }
 
 }
