@@ -11,11 +11,14 @@ import { StoresService } from './stores.service';
 })
 export class AppComponent {
 
-  storeList: Store[] = [];
-
-  getStores(): void {
-    this.storeList = this.storesService.getStores();
-  }
+  /*
+    storeList: Store[] = [];
+  
+    getStores(): void {
+      this.storesService.getStores()
+        .subscribe(storeList => this.storeList = storeList);
+    }
+    */
 
   title = 'Ada and Friends - Business Directory';
 

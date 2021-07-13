@@ -12,14 +12,19 @@ export class StoreListComponent implements OnInit {
 
   storeList: Store[] = [];
 
+  /* // Used if getStores Returns an observable
   getStores(): void {
+    this.storesService.getStores()
+      .subscribe(storeList => this.storeList = storeList);
+  } */
+  getMyStores(): void {
     this.storeList = this.storesService.getStores();
   }
 
   constructor(private storesService: StoresService) { }
 
   ngOnInit() {
-    this.getStores();
+    this.getMyStores();
   }
 
 
