@@ -16,10 +16,13 @@ export class StoreListComponent implements OnInit {
     this.storeList = this.storesService.getStores();
   }
 
+
   constructor(private storesService: StoresService) { }
 
+  // ngOnInit() { }
   ngOnInit() {
     this.getStores();
+    console.log(this.storeList); //For debuggung feather-pin
   }
 
 

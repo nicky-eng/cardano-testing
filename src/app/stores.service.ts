@@ -10,10 +10,26 @@ import stores from './stores.json';
 })
 export class StoresService {
 
-  private storeList: Store[] = stores;
+  // GoogleMap pin works
+  // private storeList: Store[] = stores;
 
+  // getStores(): Store[] {
+  //   return this.storeList;
+  // }
+
+
+  private storeList: Store[] = [];
+
+  private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
   getStores(): Store[] {
-    return this.storeList;
+    this.http.get(this.storesUrl).toPromise()
+      .then(data => {
+
+        for (let item in data) {
+          this.storeList.push(data[item]);
+        }
+      });
+    return this.storeList
   }
 
   constructor(

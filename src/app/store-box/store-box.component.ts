@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Input } from '@angular/core';
 import { Store } from '../store';
 
@@ -8,13 +8,15 @@ import { Store } from '../store';
   templateUrl: './store-box.component.html',
   styleUrls: ['./store-box.component.css']
 })
-export class StoreBoxComponent implements OnInit {
+export class StoreBoxComponent implements OnChanges {
 
   @Input() store!: Store;
 
   @Input() index!: number;
 
   constructor() { }
+
+  ngOnChanges() { }
 
   ngOnInit() {
   }

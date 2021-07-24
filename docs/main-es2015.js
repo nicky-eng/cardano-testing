@@ -22,24 +22,33 @@ module.exports = __webpack_require__(/*! /home/nicky/git/ada_stores/frontend/src
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoresService", function() { return StoresService; });
-/* harmony import */ var _stores_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stores.json */ "iyHU");
-var _stores_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./stores.json */ "iyHU", 1);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 class StoresService {
     constructor(http) {
         this.http = http;
-        this.storeList = _stores_json__WEBPACK_IMPORTED_MODULE_0__;
+        // GoogleMap pin works
+        // private storeList: Store[] = stores;
+        // getStores(): Store[] {
+        //   return this.storeList;
+        // }
+        this.storeList = [];
+        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
     }
     getStores() {
+        this.http.get(this.storesUrl).toPromise()
+            .then(data => {
+            for (let item in data) {
+                this.storeList.push(data[item]);
+            }
+        });
         return this.storeList;
     }
 }
-StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
+StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
+StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
@@ -144,17 +153,6 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector
 
 /***/ }),
 
-/***/ "iyHU":
-/*!*****************************!*\
-  !*** ./src/app/stores.json ***!
-  \*****************************/
-/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("[{\"name\":\"activity tours\",\"picture\":\"assets/images/explore/activity-tours.png\",\"country\":\"Greece\",\"googlemaps_link\":\"https://goo.gl/maps/QJ3hZi5yk4ZnreWv7\",\"website\":\"https://www.activity-tours.com/\",\"address\":\"Filolaou 124, Athens\"},{\"name\":\"Hotel Palm Royal Naha\",\"picture\":\"assets/images/explore/palm-royal-naha.jpg\",\"country\":\"japan\",\"googlemaps_link\":\"https://goo.gl/maps/22C6UAVL4BtbQsBz7\",\"website\":\"http://palmroyal.co.jp/\",\"address\":\"Okinawa Prefecture Naha City Makishi 3-9-10\"},{\"name\":\"Rogue Origin - CBD Products\",\"picture\":\"assets/images/explore/rogue-origin.png\",\"country\":\"United States\",\"state\":\"Oregon\",\"googlemaps_link\":\"https://goo.gl/maps/ZE1HRdhYruNxiqd39\",\"website\":\"https://rogueorigin.com/\",\"address\":\"Rogue Valley\"},{\"name\":\"Pita Barcelona - Luxury Fashion\",\"picture\":\"assets/images/explore/pita-barcelona.png\",\"country\":\"Spain\",\"googlemaps_link\":\"https://goo.gl/maps/pTpmY1ct8m8Ck1MX7\",\"website\":\"http://www.pita.es\",\"address\":\"Avinguda Meridiana 223\"},{\"name\":\"Travala.com\",\"picture\":\"assets/images/explore/travala.png\",\"country\":\"England\",\"googlemaps_link\":\"https://goo.gl/maps/J5ThPHFTj85ywuEaA\",\"website\":\"http://www.travala.com\",\"address\":\"Chorley, Lancashire\"},{\"name\":\"GamerAll.com\",\"picture\":\"assets/images/explore/gamerall.com.png\",\"country\":\"\",\"googlemaps_link\":\"https://goo.gl/maps/HVSzLLwtEfoETiMh6\",\"website\":\"http://www.gamerall.com\",\"address\":\"Steam Community\"},{\"name\":\"Plan It Green Printing\",\"picture\":\"assets/images/explore/plan-it.png\",\"country\":\"United States\",\"state\":\"California\",\"googlemaps_link\":\"https://goo.gl/maps/hTCMB67oLT8dQ93JA\",\"website\":\"https://planitgreenprinting.org\",\"address\":\"7435 Figueroa Street #502, Los Angeles 90041\"},{\"name\":\"Gabriel La Torre - Web Developer\",\"picture\":\"assets/images/explore/gabolato.png\",\"country\":\"Argentina\",\"googlemaps_link\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"http://latorregabriel.com/\",\"address\":\"City of Buenos Aires\"},{\"name\":\"Nicolas Oyarzabal- Web Developer\",\"picture\":\"assets/images/explore/nicky-eng.png\",\"country\":\"Denmark\",\"googlemaps_link\":\"https://goo.gl/maps/WzXGwz6twFTRRHKD7\",\"website\":\"https://www.linkedin.com/in/noyarzab/\",\"address\":\"Copenhagen\"},{\"name\":\"Gina Moda\",\"picture\":\"assets/images/explore/ginamoda.png\",\"country\":\"Argentina\",\"googlemaps_link\":\"https://goo.gl/maps/gm6oeGc4NYUsVZVaA\",\"website\":\"https://www.instagram.com/ginamodaes/\",\"address\":\"City of Buenos Aires\"}]");
-
-/***/ }),
-
 /***/ "qOGq":
 /*!**************************************************!*\
   !*** ./src/app/store-box/store-box.component.ts ***!
@@ -192,11 +190,12 @@ function StoreBoxComponent_ng_template_16_Template(rf, ctx) { if (rf & 1) {
 } }
 class StoreBoxComponent {
     constructor() { }
+    ngOnChanges() { }
     ngOnInit() {
     }
 }
 StoreBoxComponent.ɵfac = function StoreBoxComponent_Factory(t) { return new (t || StoreBoxComponent)(); };
-StoreBoxComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: StoreBoxComponent, selectors: [["app-store-box"]], inputs: { store: "store", index: "index" }, decls: 31, vars: 12, consts: [["class", "clearfix visible-md-block visible-lg-block", 4, "ngIf"], ["class", "clearfix visible-sm-block", 4, "ngIf"], [1, "col-md-4", "col-sm-6"], [1, "single-explore-item"], [1, "single-explore-img"], ["alt", "shop image", 3, "src"], [1, "single-explore-txt", "bg-theme-1"], [1, "explore-person"], ["target", "_blank", "rel", "noopener noreferrer", 3, "href"], [1, "row"], [1, "col-sm-10"], [1, "explore-rating-price"], [4, "ngIf", "ngIfElse"], ["elseBlock", ""], [1, "explore-open-close-part"], [1, "col-xs-5"], ["target", "_blank", "rel", "noreferrer noopener", 3, "href"], ["onclick", "window.location.href='#'", 1, "close-btn", "open-btn"], [1, "col-xs-7"], [1, "explore-map-icon"], ["data-feather", "map-pin"], [1, "clearfix", "visible-md-block", "visible-lg-block"], [1, "clearfix", "visible-sm-block"]], template: function StoreBoxComponent_Template(rf, ctx) { if (rf & 1) {
+StoreBoxComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: StoreBoxComponent, selectors: [["app-store-box"]], inputs: { store: "store", index: "index" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 31, vars: 12, consts: [["class", "clearfix visible-md-block visible-lg-block", 4, "ngIf"], ["class", "clearfix visible-sm-block", 4, "ngIf"], [1, "col-md-4", "col-sm-6"], [1, "single-explore-item"], [1, "single-explore-img"], ["alt", "shop image", 3, "src"], [1, "single-explore-txt", "bg-theme-1"], [1, "explore-person"], ["target", "_blank", "rel", "noopener noreferrer", 3, "href"], [1, "row"], [1, "col-sm-10"], [1, "explore-rating-price"], [4, "ngIf", "ngIfElse"], ["elseBlock", ""], [1, "explore-open-close-part"], [1, "col-xs-5"], ["target", "_blank", "rel", "noreferrer noopener", 3, "href"], [1, "close-btn", "open-btn"], [1, "col-xs-7"], [1, "explore-map-icon"], ["data-feather", "map-pin"], [1, "clearfix", "visible-md-block", "visible-lg-block"], [1, "clearfix", "visible-sm-block"]], template: function StoreBoxComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, StoreBoxComponent_div_0_Template, 1, 0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, StoreBoxComponent_div_1_Template, 1, 0, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -259,17 +258,17 @@ StoreBoxComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.store.name, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps_link, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.store.state)("ngIfElse", _r3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps_link, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.store.country);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.store.country["name"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.website, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx.store.googlemaps_link, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdG9yZS1ib3guY29tcG9uZW50LmNzcyJ9 */"] });
 
 
@@ -308,8 +307,10 @@ class StoreListComponent {
     getStores() {
         this.storeList = this.storesService.getStores();
     }
+    // ngOnInit() { }
     ngOnInit() {
         this.getStores();
+        console.log(this.storeList); //For debuggung feather-pin
     }
 }
 StoreListComponent.ɵfac = function StoreListComponent_Factory(t) { return new (t || StoreListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_stores_service__WEBPACK_IMPORTED_MODULE_1__["StoresService"])); };
