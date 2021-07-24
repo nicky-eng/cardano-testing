@@ -22,33 +22,36 @@ module.exports = __webpack_require__(/*! /home/nicky/git/ada_stores/frontend/src
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoresService", function() { return StoresService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _stores_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stores.json */ "iyHU");
+var _stores_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./stores.json */ "iyHU", 1);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 class StoresService {
+    // private storeList: Store[] = [];
+    // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+    // getStores(): Store[] {
+    //   this.http.get(this.storesUrl).toPromise()
+    //     .then(data => {
+    //       for (let item in data) {
+    //         this.storeList.push(data[item]);
+    //       }
+    //     });
+    //   return this.storeList
+    // }
     constructor(http) {
         this.http = http;
         // GoogleMap pin works
-        // private storeList: Store[] = stores;
-        // getStores(): Store[] {
-        //   return this.storeList;
-        // }
-        this.storeList = [];
-        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        this.storeList = _stores_json__WEBPACK_IMPORTED_MODULE_0__;
     }
     getStores() {
-        this.http.get(this.storesUrl).toPromise()
-            .then(data => {
-            for (let item in data) {
-                this.storeList.push(data[item]);
-            }
-        });
         return this.storeList;
     }
 }
-StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
-StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
+StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
@@ -150,6 +153,17 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector
         _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_4__["StoreListComponent"]], imports: [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]] }); })();
 
+
+/***/ }),
+
+/***/ "iyHU":
+/*!*****************************!*\
+  !*** ./src/app/stores.json ***!
+  \*****************************/
+/*! exports provided: 0, 1, 2, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[{\"name\":\"Dragon Store\",\"website\":\"https://dragon.co\",\"address\":\"Dragon's Lair 88\",\"country\":{\"name\":\"Croatia\"},\"googlemaps_link\":\"https://goo.gl/maps/3MeteByceGnEQeeB7\",\"picture\":\"https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA\"},{\"name\":\"Dragon Pharma\",\"website\":\"https://dragonpharma.com\",\"address\":\"Dragon World 77\",\"country\":{\"name\":\"Afghanistan\"},\"googlemaps_link\":\"https://goo.gl/maps/TcHAGaCxdg55jcyG8\",\"picture\":\"https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA\"},{\"name\":\"Dragon Tours\",\"website\":\"dragontours.com\",\"address\":\"Dragon Mountain 99\",\"country\":{\"name\":\"Antigua and Barbuda\"},\"googlemaps_link\":\"https://goo.gl/maps/TXy251M46Xt8Hy2f7\",\"picture\":\"https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA\"}]");
 
 /***/ }),
 
