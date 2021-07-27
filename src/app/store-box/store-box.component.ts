@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Input } from '@angular/core';
-import { Store } from '../store';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
+import { Store } from '../store';
 
 @Component({
   selector: 'app-store-box',
@@ -9,7 +10,7 @@ import { Store } from '../store';
   styleUrls: ['./store-box.component.css']
 })
 export class StoreBoxComponent implements OnChanges {
-
+  faMapMarkerAlt = faMapMarkerAlt;
   @Input() store!: Store;
 
   @Input() index!: number;
