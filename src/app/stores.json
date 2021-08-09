@@ -1,32 +1,84 @@
 [
     {
-        "name": "Dragon Store",
-        "website": "https://dragon.co",
-        "address": "Dragon's Lair 88",
-        "country": {
-            "name": "Croatia"
-        },
-        "googlemaps_link": "https://goo.gl/maps/3MeteByceGnEQeeB7",
-        "picture": "https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA"
+        "name": "activity tours",
+        "picture": "assets/images/explore/activity-tours.png",
+        "country": "Greece",
+        "googlemaps_link": "https://goo.gl/maps/QJ3hZi5yk4ZnreWv7",
+        "website": "https://www.activity-tours.com/",
+        "address": "Filolaou 124, Athens"
     },
     {
-        "name": "Dragon Pharma",
-        "website": "https://dragonpharma.com",
-        "address": "Dragon World 77",
-        "country": {
-            "name": "Afghanistan"
-        },
-        "googlemaps_link": "https://goo.gl/maps/TcHAGaCxdg55jcyG8",
-        "picture": "https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA"
+        "name": "Hotel Palm Royal Naha",
+        "picture": "assets/images/explore/palm-royal-naha.jpg",
+        "country": "japan",
+        "googlemaps_link": "https://goo.gl/maps/22C6UAVL4BtbQsBz7",
+        "website": "http://palmroyal.co.jp/",
+        "address": "Okinawa Prefecture Naha City Makishi 3-9-10"
     },
     {
-        "name": "Dragon Tours",
-        "website": "dragontours.com",
-        "address": "Dragon Mountain 99",
-        "country": {
-            "name": "Antigua and Barbuda"
-        },
-        "googlemaps_link": "https://goo.gl/maps/TXy251M46Xt8Hy2f7",
-        "picture": "https://content.dropboxapi.com/apitl/1/A1BrKt2Jnf1MhlKwaOZYJGhvJ0hAC8Gz5G1jy5dLNlrpeStcEWKsX7PezO1U_jURpbJoVfeUjhyHbTxMaYCBjIGNKIz6X-L0ezU1DkOXrXUcIwGW2HQO_dHFPzuke51EkkpfIq695Mfc9fOzn3W5lKwYfW1dGQvw7CDXceZpfH55uXkkScDqsDW37G-gvZyBlEJ7AWJpXE5Eqd2XKSb4H1C1oWW0yL7w9d2SlUPH7RYIiqiEegK8NNNqyw5E-cIza9mRAG_AKDO5PtNBS4e47IJJG5hHSP1CGle0dustbIVoYAFmevBw6JDP62ndHJR8Iads6FDj3AVLDcbffehsterXB9JIgbDDzcOUHr62OaNtNA"
+        "name": "Rogue Origin - CBD Products",
+        "picture": "assets/images/explore/rogue-origin.png",
+        "country": "United States",
+        "state": "Oregon",
+        "googlemaps_link": "https://goo.gl/maps/ZE1HRdhYruNxiqd39",
+        "website": "https://rogueorigin.com/",
+        "address": "Rogue Valley"
+    },
+    {
+        "name": "Pita Barcelona - Luxury Fashion",
+        "picture": "assets/images/explore/pita-barcelona.png",
+        "country": "Spain",
+        "googlemaps_link": "https://goo.gl/maps/pTpmY1ct8m8Ck1MX7",
+        "website": "http://www.pita.es",
+        "address": "Avinguda Meridiana 223"
+    },
+    {
+        "name": "Travala.com",
+        "picture": "assets/images/explore/travala.png",
+        "country": "England",
+        "googlemaps_link": "https://goo.gl/maps/J5ThPHFTj85ywuEaA",
+        "website": "http://www.travala.com",
+        "address": "Chorley, Lancashire"
+    },
+    {
+        "name": "GamerAll.com",
+        "picture": "assets/images/explore/gamerall.com.png",
+        "country": "",
+        "googlemaps_link": "https://goo.gl/maps/HVSzLLwtEfoETiMh6",
+        "website": "http://www.gamerall.com",
+        "address": "Steam Community"
+    },
+    {
+        "name": "Plan It Green Printing",
+        "picture": "assets/images/explore/plan-it.png",
+        "country": "United States",
+        "state": "California",
+        "googlemaps_link": "https://goo.gl/maps/hTCMB67oLT8dQ93JA",
+        "website": "https://planitgreenprinting.org",
+        "address": "7435 Figueroa Street #502, Los Angeles 90041"
+    },
+    {
+        "name": "Gabriel La Torre - Web Developer",
+        "picture": "assets/images/explore/gabolato.png",
+        "country": "Argentina",
+        "googlemaps_link": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
+        "website": "http://latorregabriel.com/",
+        "address": "City of Buenos Aires"
+    },
+    {
+        "name": "Nicolas Oyarzabal- Web Developer",
+        "picture": "assets/images/explore/nicky-eng.png",
+        "country": "Denmark",
+        "googlemaps_link": "https://goo.gl/maps/WzXGwz6twFTRRHKD7",
+        "website": "https://www.linkedin.com/in/noyarzab/",
+        "address": "Copenhagen"
+    },
+    {
+        "name": "Gina Moda",
+        "picture": "assets/images/explore/ginamoda.png",
+        "country": "Argentina",
+        "googlemaps_link": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
+        "website": "https://www.instagram.com/ginamodaes/",
+        "address": "City of Buenos Aires"
     }
 ]

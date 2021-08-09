@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
 
 import { Store } from '../store';
 import { StoresService } from '../stores.service';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-store-list',
@@ -10,6 +12,8 @@ import { StoresService } from '../stores.service';
 })
 export class StoreListComponent implements OnInit {
 
+  loading: boolean = false;
+
   storeList: Store[] = [];
 
   getStores(): void {
@@ -17,13 +21,23 @@ export class StoreListComponent implements OnInit {
   }
 
 
-  constructor(private storesService: StoresService) { }
+  constructor(private _loading: LoadingService,
+    private storesService: StoresService) { }
 
-  // ngOnInit() { }
   ngOnInit() {
     this.getStores();
-    console.log(this.storeList); //For debuggung feather-pin
+    this.listenToLoading();
   }
+
+  listenToLoading(): void {
+    this._loading.loadingSub
+      .pipe(delay(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests
+      .subscribe((loading) => {
+        this.loading = loading;
+      });
+  }
+
+
 
 
 }
