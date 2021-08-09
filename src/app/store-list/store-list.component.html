@@ -5,6 +5,9 @@
 				<div class="section-header">
 					<h2>find your store</h2>
 					<p>Find stores and businesses that accept ADA coin, the Cardano Blockchain coin</p>
+					<div *ngIf="loading">
+    					<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+					</div>
 				</div><!--/.section-header-->
 				<div class="explore-content">
 					<div class="row">

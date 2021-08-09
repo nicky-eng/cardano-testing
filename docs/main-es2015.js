@@ -131,7 +131,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store-box/store-box.component */ "qOGq");
 /* harmony import */ var _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store-list/store-list.component */ "smD0");
 /* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "6NWb");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _http_request_interceptor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./http-request-interceptor */ "eIeQ");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
@@ -142,17 +144,119 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ providers: [], imports: [[
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({ providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"], useClass: _http_request_interceptor__WEBPACK_IMPORTED_MODULE_6__["HttpRequestInterceptor"], multi: true }], imports: [[
             _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"],
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
         _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__["StoreBoxComponent"],
         _store_list_store_list_component__WEBPACK_IMPORTED_MODULE_4__["StoreListComponent"]], imports: [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeModule"]] }); })();
+
+
+/***/ }),
+
+/***/ "eIeQ":
+/*!*********************************************!*\
+  !*** ./src/app/http-request-interceptor.ts ***!
+  \*********************************************/
+/*! exports provided: HttpRequestInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpRequestInterceptor", function() { return HttpRequestInterceptor; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./loading.service */ "ixqX");
+
+
+
+
+/**
+ * This class is for intercepting http requests. When a request starts, we set the loadingSub property
+ * in the LoadingService to true. Once the request completes and we have a response, set the loadingSub
+ * property to false. If an error occurs while servicing the request, set the loadingSub property to false.
+ * @class {HttpRequestInterceptor}
+ */
+class HttpRequestInterceptor {
+    constructor(_loading) {
+        this._loading = _loading;
+    }
+    intercept(request, next) {
+        this._loading.setLoading(true, request.url);
+        return next.handle(request)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])((err) => {
+            this._loading.setLoading(false, request.url);
+            return err;
+        }))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((evt) => {
+            if (evt instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpResponse"]) {
+                this._loading.setLoading(false, request.url);
+            }
+            return evt;
+        }));
+    }
+}
+HttpRequestInterceptor.ɵfac = function HttpRequestInterceptor_Factory(t) { return new (t || HttpRequestInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"])); };
+HttpRequestInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: HttpRequestInterceptor, factory: HttpRequestInterceptor.ɵfac });
+
+
+/***/ }),
+
+/***/ "ixqX":
+/*!************************************!*\
+  !*** ./src/app/loading.service.ts ***!
+  \************************************/
+/*! exports provided: LoadingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingService", function() { return LoadingService; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class LoadingService {
+    constructor() {
+        this.loadingSub = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](false);
+        /**
+         * Contains in-progress loading requests
+         */
+        this.loadingMap = new Map();
+    }
+    /**
+     * Sets the loadingSub property value based on the following:
+     * - If loading is true, add the provided url to the loadingMap with a true value, set loadingSub value to true
+     * - If loading is false, remove the loadingMap entry and only when the map is empty will we set loadingSub to false
+     * This pattern ensures if there are multiple requests awaiting completion, we don't set loading to false before
+     * other requests have completed. At the moment, this function is only called from the @link{HttpRequestInterceptor}
+     * @param loading {boolean}
+     * @param url {string}
+     */
+    setLoading(loading, url) {
+        if (!url) {
+            throw new Error('The request URL must be provided to the LoadingService.setLoading function');
+        }
+        if (loading === true) {
+            this.loadingMap.set(url, loading);
+            this.loadingSub.next(true);
+        }
+        else if (loading === false && this.loadingMap.has(url)) {
+            this.loadingMap.delete(url);
+        }
+        if (this.loadingMap.size === 0) {
+            this.loadingSub.next(false);
+        }
+    }
+}
+LoadingService.ɵfac = function LoadingService_Factory(t) { return new (t || LoadingService)(); };
+LoadingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: LoadingService, factory: LoadingService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
@@ -296,60 +400,85 @@ StoreBoxComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefine
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreListComponent", function() { return StoreListComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _stores_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores.service */ "9xVd");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store-box/store-box.component */ "qOGq");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../loading.service */ "ixqX");
+/* harmony import */ var _stores_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores.service */ "9xVd");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store-box/store-box.component */ "qOGq");
 
 
 
 
-function StoreListComponent_app_store_box_10_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-store-box", 7);
+
+
+function StoreListComponent_div_8_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](4, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} }
+function StoreListComponent_app_store_box_11_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-store-box", 9);
 } if (rf & 2) {
-    const item_r1 = ctx.$implicit;
-    const indexOfStore_r2 = ctx.index;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("store", item_r1)("index", indexOfStore_r2);
+    const item_r2 = ctx.$implicit;
+    const indexOfStore_r3 = ctx.index;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("store", item_r2)("index", indexOfStore_r3);
 } }
 class StoreListComponent {
-    constructor(storesService) {
+    constructor(_loading, storesService) {
+        this._loading = _loading;
         this.storesService = storesService;
+        this.loading = false;
         this.storeList = [];
     }
     getStores() {
         this.storeList = this.storesService.getStores();
     }
-    // ngOnInit() { }
     ngOnInit() {
         this.getStores();
-        console.log(this.storeList); //For debuggung feather-pin
+        this.listenToLoading();
+    }
+    listenToLoading() {
+        this._loading.loadingSub
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["delay"])(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests
+            .subscribe((loading) => {
+            this.loading = loading;
+        });
     }
 }
-StoreListComponent.ɵfac = function StoreListComponent_Factory(t) { return new (t || StoreListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_stores_service__WEBPACK_IMPORTED_MODULE_1__["StoresService"])); };
-StoreListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: StoreListComponent, selectors: [["app-store-list"]], decls: 11, vars: 1, consts: [[2, "text-align", "left"], ["id", "explore", 1, "explore"], [1, "container"], [1, "section-header"], [1, "explore-content"], [1, "row"], [3, "store", "index", 4, "ngFor", "ngForOf"], [3, "store", "index"]], template: function StoreListComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "find your store");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Find stores and businesses that accept ADA coin, the Cardano Blockchain coin");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, StoreListComponent_app_store_box_10_Template, 1, 2, "app-store-box", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+StoreListComponent.ɵfac = function StoreListComponent_Factory(t) { return new (t || StoreListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_loading_service__WEBPACK_IMPORTED_MODULE_2__["LoadingService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_stores_service__WEBPACK_IMPORTED_MODULE_3__["StoresService"])); };
+StoreListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: StoreListComponent, selectors: [["app-store-list"]], decls: 12, vars: 2, consts: [[2, "text-align", "left"], ["id", "explore", 1, "explore"], [1, "container"], [1, "section-header"], [4, "ngIf"], [1, "explore-content"], [1, "row"], [3, "store", "index", 4, "ngFor", "ngForOf"], [1, "lds-ring"], [3, "store", "index"]], template: function StoreListComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "section", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, "find your store");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Find stores and businesses that accept ADA coin, the Cardano Blockchain coin");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](8, StoreListComponent_div_8_Template, 6, 0, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](11, StoreListComponent_app_store_box_11_Template, 1, 2, "app-store-box", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.storeList);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_3__["StoreBoxComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdG9yZS1saXN0LmNvbXBvbmVudC5jc3MifQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.loading);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.storeList);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_5__["StoreBoxComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdG9yZS1saXN0LmNvbXBvbmVudC5jc3MifQ== */"] });
 
 
 /***/ }),
