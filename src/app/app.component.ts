@@ -11,6 +11,7 @@ import { StoresService } from './stores.service';
 })
 export class AppComponent {
 
+
   storeList: Store[] = [];
 
   getStores(): void {
