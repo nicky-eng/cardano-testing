@@ -58,14 +58,9 @@
         function StoresService(http) {
           _classCallCheck(this, StoresService);
 
-          this.http = http; // GoogleMap pin works
-          // private storeList: Store[] = stores;
-          // getStores(): Store[] {
-          //   return this.storeList;
-          // }
-
+          this.http = http;
           this.storeList = [];
-          this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+          this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
         }
 
         _createClass(StoresService, [{

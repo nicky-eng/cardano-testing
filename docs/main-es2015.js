@@ -29,13 +29,8 @@ __webpack_require__.r(__webpack_exports__);
 class StoresService {
     constructor(http) {
         this.http = http;
-        // GoogleMap pin works
-        // private storeList: Store[] = stores;
-        // getStores(): Store[] {
-        //   return this.storeList;
-        // }
         this.storeList = [];
-        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     }
     getStores() {
         this.http.get(this.storesUrl).toPromise()
