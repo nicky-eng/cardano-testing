@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Store } from './store'
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,21 +10,16 @@ import { Store } from './store'
 })
 export class StoresService {
 
-  private storeList: Store[] = [];
+  constructor(private http: HttpClient) { }
 
-  private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
-  getStores(): Store[] {
-    this.http.get(this.storesUrl).toPromise()
-      .then(data => {
+  private storesUrl = 'http://localhost:8000/stores/?format=json';
+  // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
-        for (let item in data) {
-          this.storeList.push(data[item]);
-        }
-      });
-    return this.storeList
+  getStores(url: string): Observable<any> {
+    const currentUrl = url ?? this.storesUrl
+
+    return this.http.get(currentUrl)
   }
 
-  constructor(
-    private http: HttpClient) { }
 
 }
