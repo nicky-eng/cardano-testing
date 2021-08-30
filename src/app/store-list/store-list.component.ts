@@ -67,6 +67,9 @@ export class StoreListComponent implements OnInit {
         this.initializer = this.currentPage - 2;
         this.endCondition = this.currentPage + 2;
       }
+
+      // Set pages to be shown with corresponding API address
+
       for (let i = this.initializer; i <= this.endCondition; i++) {
         this.pagesShown.push({
           "number": i,

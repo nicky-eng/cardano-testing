@@ -11,7 +11,8 @@ export class StoresService {
 
   constructor(private http: HttpClient) { }
 
-  private storesUrl = 'http://localhost:8000/stores/?format=json';
+  //private storesUrl = 'http://localhost:8000/stores/?format=json';
+  private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
   // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
   getStores(url: string): Observable<any> {
