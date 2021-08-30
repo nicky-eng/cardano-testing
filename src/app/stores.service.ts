@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Store } from './store'
-import stores from './stores.json';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,29 +9,17 @@ import stores from './stores.json';
 })
 export class StoresService {
 
-  // GoogleMap pin works
-  // private storeList: Store[] = stores;
+  constructor(private http: HttpClient) { }
 
-  // getStores(): Store[] {
-  //   return this.storeList;
-  // }
-
-
-  private storeList: Store[] = [];
-
+  //private storesUrl = 'http://localhost:8000/stores/?format=json';
   private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
-  getStores(): Store[] {
-    this.http.get(this.storesUrl).toPromise()
-      .then(data => {
+  // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
-        for (let item in data) {
-          this.storeList.push(data[item]);
-        }
-      });
-    return this.storeList
+  getStores(url: string): Observable<any> {
+    const currentUrl = url ?? this.storesUrl
+
+    return this.http.get(currentUrl)
   }
 
-  constructor(
-    private http: HttpClient) { }
 
 }
