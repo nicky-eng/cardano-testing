@@ -59,10 +59,10 @@
           _classCallCheck(this, StoresService);
 
           this.http = http; //private storesUrl = 'http://localhost:8000/stores/?format=json';
+          // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
 
-          this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
-        } // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
-
+          this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
+        }
 
         _createClass(StoresService, [{
           key: "getStores",
@@ -918,7 +918,7 @@
               _this2.storeList = data['results'];
               _this2.paginationNext = data['next'];
               _this2.paginationPrevious = data['previous'];
-              _this2.numberOfPages = Math.ceil(data['count'] / 5);
+              _this2.numberOfPages = Math.ceil(data['count'] / 9);
               console.log(_this2.paginationNext); // Extraction ofthe current page number from "next page" link
 
               if (_this2.paginationNext !== null) {
