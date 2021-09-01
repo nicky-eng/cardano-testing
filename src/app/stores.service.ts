@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -12,8 +12,8 @@ export class StoresService {
   constructor(private http: HttpClient) { }
 
   //private storesUrl = 'http://localhost:8000/stores/?format=json';
-  private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
-  // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
+  // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+  private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
   getStores(url: string): Observable<any> {
     const currentUrl = url ?? this.storesUrl

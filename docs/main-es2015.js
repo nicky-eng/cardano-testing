@@ -30,9 +30,9 @@ class StoresService {
     constructor(http) {
         this.http = http;
         //private storesUrl = 'http://localhost:8000/stores/?format=json';
-        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     }
-    // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     getStores(url) {
         const currentUrl = url !== null && url !== void 0 ? url : this.storesUrl;
         return this.http.get(currentUrl);
@@ -456,7 +456,7 @@ class StoreListComponent {
             this.storeList = data['results'];
             this.paginationNext = data['next'];
             this.paginationPrevious = data['previous'];
-            this.numberOfPages = Math.ceil(data['count'] / 5);
+            this.numberOfPages = Math.ceil(data['count'] / 9);
             console.log(this.paginationNext);
             // Extraction ofthe current page number from "next page" link
             if (this.paginationNext !== null) {

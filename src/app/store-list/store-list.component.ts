@@ -30,7 +30,7 @@ export class StoreListComponent implements OnInit {
       this.storeList = data['results'];
       this.paginationNext = data['next'];
       this.paginationPrevious = data['previous'];
-      this.numberOfPages = Math.ceil(data['count'] / 5);
+      this.numberOfPages = Math.ceil(data['count'] / 9);
 
       console.log(this.paginationNext)
 

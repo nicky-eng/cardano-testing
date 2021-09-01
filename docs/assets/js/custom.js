@@ -12,7 +12,6 @@ $(document).ready(function () {
 
 	/*=========== TABLE OF CONTENTS ===========
 	1. Scroll To Top 
-	2. slick carousel
 	3. welcome animation support
 	======================================*/
 
