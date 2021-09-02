@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -13,6 +13,9 @@ export class StoresService {
   constructor(private http: HttpClient) { }
 
   private storesUrl = 'http://example.com:81/';
+  private attempts = 0;
+
+
   // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
   // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
@@ -20,11 +23,15 @@ export class StoresService {
     const currentUrl = url ?? this.storesUrl
 
     return this.http.get(currentUrl).pipe(
+      tap(data => {
+        this.attempts = 0;
+      }),
       catchError((err) => {
         debugger;
-        if (err.status === 0) {
+        if (err.status === 0 && this.attempts === 0) {
           debugger;
-          return this.getStores(url)
+          this.attempts += 1;
+          return this.getStores('https://testing-cardano-back.herokuapp.com/stores/?format=json')
         } else {
           console.log('error caught in service')
           console.error(err);
