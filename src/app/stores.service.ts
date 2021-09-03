@@ -12,11 +12,11 @@ export class StoresService {
 
   constructor(private http: HttpClient) { }
 
-  private storesUrl = 'http://example.com:81/';
+
   private attempts = 0;
 
-
-  // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+  // private storesUrl = 'http://localhost:4200';
+  private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
   // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
   getStores(url: string): Observable<any> {
@@ -31,7 +31,7 @@ export class StoresService {
         if (err.status === 0 && this.attempts === 0) {
           debugger;
           this.attempts += 1;
-          return this.getStores('https://testing-cardano-back.herokuapp.com/stores/?format=json')
+          return this.getStores(currentUrl)
         } else {
           console.log('error caught in service')
           console.error(err);
